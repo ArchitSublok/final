@@ -1,0 +1,76 @@
+.form-wrapper {
+    max-width: 800px;
+    margin: 50px auto;
+    border: 1px solid #dcdcdc;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.form-header {
+    background-color: #eab308; /* The formal gold from your screenshot */
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #2d4a3e;
+    text-transform: uppercase;
+}
+
+.eco-form-body {
+    padding: 30px;
+    background-color: #ccf2f4; /* The light teal from your reference */
+}
+
+.form-step {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Grid for Step 1 */
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.choice-card {
+    border: 2px solid #fff;
+    background: white;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.choice-card:hover {
+    border-color: #2d4a3e;
+}
+
+.choice-card input {
+    display: none; /* Hide the actual radio button */
+}
+
+/* Style for when a card is selected */
+.choice-card input:checked + span {
+    font-weight: bold;
+    color: #2d4a3e;
+}
+
+.formal-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-routing-btn {
+    width: 100%;
+    padding: 15px;
+    background: #2d4a3e;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
