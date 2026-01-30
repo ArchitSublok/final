@@ -1,0 +1,79 @@
+/* Reusing your formal container style */
+.form-wrapper {
+    max-width: 800px;
+    margin: 50px auto;
+    border: 1px solid #dcdcdc;
+    background: white;
+}
+
+.form-header {
+    background-color: #eab308; /* The formal Gold */
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #2d4a3e;
+    text-transform: uppercase;
+}
+
+.eco-form-body {
+    padding: 30px;
+    background-color: #ccf2f4; /* Light Teal background from your school portal reference */
+}
+
+/* Choice Cards for a modern feel */
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.choice-card {
+    border: 1px solid #ddd;
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px; /* Sharper formal corners */
+    transition: all 0.2s ease;
+}
+
+.choice-card:hover {
+    background-color: #f0fdf4;
+    border-color: #2d4a3e;
+}
+
+.choice-card input {
+    display: none;
+}
+
+/* Highlighting the selection */
+.choice-card input:checked + span {
+    color: #2d4a3e;
+    font-weight: bold;
+}
+
+.formal-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+/* Button style for 'Requesting' material */
+.submit-request-btn {
+    width: 100%;
+    padding: 18px;
+    background: #2d4a3e; /* Dark forest green */
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.submit-request-btn:hover {
+    background: #1e332b;
+}
