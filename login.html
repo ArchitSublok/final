@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABHSETU | Secure Access</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --forest-deep: #083d41;
+            --bridge-teal: #1a5e63;
+            --sage-muted: #8da898;
+            --leaf-light: #52b788;
+            --glass-white: rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fff7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- DYNAMIC ECO-BACKGROUND --- */
+        .labh-setu-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at top right, #e8f5e9, #ffffff),
+                        linear-gradient(to bottom, #f1f8e9, #ffffff);
+        }
+
+        .leaf {
+            position: absolute;
+            background: var(--leaf-light);
+            border-radius: 0 100% 0 100%;
+            opacity: 0.15;
+            animation: drift-sway 18s infinite ease-in-out;
+            bottom: -50px;
+        }
+
+        @keyframes drift-sway {
+            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; }
+            20% { opacity: 0.4; }
+            100% { transform: translateY(-110vh) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+
+        /* --- AUTH CARD: GLASSMORPHISM --- */
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .glass-card {
+            width: 100%;
+            max-width: 460px;
+            background: var(--glass-white);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px rgba(8, 61, 65, 0.1);
+            overflow: hidden;
+        }
+
+        .card-accent-bar {
+            height: 6px;
+            background: linear-gradient(90deg, var(--forest-deep), var(--leaf-light));
+        }
+
+        /* --- CUSTOM TABS --- */
+        .auth-tabs {
+            display: flex;
+            background: rgba(8, 61, 65, 0.05);
+            margin: 30px 40px 10px;
+            border-radius: 20px;
+            padding: 4px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            border: none;
+            background: none;
+            padding: 12px;
+            font-weight: 600;
+            border-radius: 16px;
+            color: var(--forest-deep);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: var(--forest-deep);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .form-content {
+            padding: 30px 45px 45px;
+        }
+
+        .form-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            color: var(--bridge-teal);
+            margin-bottom: 8px;
+            margin-left: 5px;
+        }
+
+        .form-control, .form-select {
+            border-radius: 15px;
+            border: 1px solid rgba(8, 61, 65, 0.1);
+            padding: 14px;
+            background: white;
+            margin-bottom: 22px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--leaf-light);
+            box-shadow: 0 0 0 4px rgba(82, 183, 136, 0.1);
+        }
+
+        /* --- THE BRIDGE BUTTON --- */
+        .btn-bridge {
+            background: var(--forest-deep);
+            color: white;
+            border: none;
+            border-radius: 18px;
+            width: 100%;
+            padding: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: 0.4s;
+            margin-top: 10px;
+        }
+
+        .btn-bridge:hover {
+            background: #0b5358;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(8, 61, 65, 0.2);
+            color: white;
+        }
+
+        .hidden-form { display: none; }
+
+        .logo-box {
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .logo-box img {
+            max-height: 85px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
+        }
+    </style>
+</head>
+<body>
+
+    <div class="labh-setu-bg">
+        <div class="leaf" style="left: 10%; width: 25px; height: 35px; animation-duration: 15s;"></div>
+        <div class="leaf" style="left: 30%; width: 15px; height: 25px; animation-duration: 20s; animation-delay: 2s;"></div>
+        <div class="leaf" style="left: 70%; width: 20px; height: 30px; animation-duration: 18s; animation-delay: 5s;"></div>
+        <div class="leaf" style="left: 90%; width: 22px; height: 32px; animation-duration: 12s; animation-delay: 1s;"></div>
+    </div>
+
+    <div class="auth-container">
+        <div class="glass-card" data-aos="fade-up">
+            <div class="card-accent-bar"></div>
+            
+            <div class="logo-box">
+                <img src="mainimg.png" alt="Labhsetu Logo">
+            </div>
+
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="toggleAuth('login')">LOGIN</button>
+                <button class="tab-btn" onclick="toggleAuth('signup')">SIGN UP</button>
+            </div>
+
+            <div class="form-content">
+                <div id="login-panel">
+                    <h5 class="fw-bold mb-4" style="color: var(--forest-deep); font-family: 'Playfair Display', serif;">Welcome Back</h5>
+                    <form action="index.html">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" placeholder="yourname@example.com" required>
+                        
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                        
+                        <button type="submit" class="btn-bridge">ENTER THE BRIDGE ➔</button>
+                    </form>
+                </div>
+
+                <div id="signup-panel" class="hidden-form">
+                    <h5 class="fw-bold mb-4" style="color: var(--forest-deep); font-family: 'Playfair Display', serif;">Create Account</h5>
+                    <form action="index.html">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" placeholder="John Doe" required>
+
+                        <label class="form-label">Join As</label>
+                        <select class="form-select" required>
+                            <option value="discarder">Individual (Discarder)</option>
+                            <option value="processor">Rural Processor</option>
+                            <option value="industry">Industrial Buyer</option>
+                        </select>
+
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" placeholder="email@example.com" required>
+
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                        
+                        <button type="submit" class="btn-bridge">START JOURNEY ➔</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function toggleAuth(mode) {
+            const login = document.getElementById('login-panel');
+            const signup = document.getElementById('signup-panel');
+            const btns = document.querySelectorAll('.tab-btn');
+
+            btns.forEach(b => b.classList.remove('active'));
+
+            if(mode === 'login') {
+                login.style.display = 'block';
+                signup.style.display = 'none';
+                btns[0].classList.add('active');
+            } else {
+                login.style.display = 'none';
+                signup.style.display = 'block';
+                btns[1].classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
