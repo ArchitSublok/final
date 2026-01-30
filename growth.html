@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | LABHSETU</title>
+    <title>Growth Map | LABHSETU</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -27,122 +26,135 @@
         }
 
         /* Reusing your beautiful background */
-        .labh-setu-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at top right, #e8f5e9, #ffffff), linear-gradient(to bottom, #f1f8e9, #ffffff); overflow: hidden; }
-        .bridge-element { position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%); width: 110%; height: 300px; border-top: 10px solid rgba(45, 106, 79, 0.05); border-radius: 50% 50% 0 0; filter: blur(2px); }
+        .labh-setu-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at top right, #e8f5e9, #ffffff), linear-gradient(to bottom, #f1f8e9, #ffffff); }
         
         .navbar { background: rgba(255, 255, 255, 0.8) !important; backdrop-filter: blur(15px); border-bottom: 1px solid rgba(82, 183, 136, 0.2); }
         .navbar-brand { color: var(--forest) !important; font-family: 'Playfair Display', serif; font-size: 1.5rem; }
-
-        .hero-section { padding: 80px 0; }
-        .vision-card {
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 30px;
-            border: 1px solid rgba(82, 183, 136, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            transition: 0.3s;
-        }
-
-        .stat-circle {
-            width: 120px;
-            height: 120px;
-            border: 4px solid var(--lush-leaf);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--nature-green);
-            background: white;
-        }
-
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid var(--teal-bg);
-            margin-bottom: 15px;
-        }
-
         .btn-azure { background: var(--forest); color: white; border-radius: 30px; border: none; }
 
-        /* Reusing Footer Styles */
-        .labh-footer { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(15px); border-top: 1px solid rgba(82, 183, 136, 0.2); color: var(--forest); padding: 60px 0 30px; margin-top: 80px; }
+        /* --- GROWTH SPECIFIC STYLES --- */
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-bottom: 5px solid var(--lush-leaf);
+            transition: 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-10px); }
+        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--nature-green); }
+
+        /* Timeline */
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 40px 0; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background: var(--teal-bg); top: 0; bottom: 0; left: 50%; margin-left: -2px; }
+        .timeline-item { padding: 10px 40px; position: relative; width: 50%; }
+        .timeline-item::after { content: '🌱'; position: absolute; width: 30px; height: 30px; right: -17px; background-color: white; border: 4px solid var(--lush-leaf); top: 15px; border-radius: 50%; z-index: 1; text-align: center; font-size: 12px; }
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; }
+        .right::after { left: -13px; }
+        .timeline-content { padding: 20px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        /* --- FOOTER & CHATBOT (Reused from your code) --- */
+        .labh-footer { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(15px); border-top: 1px solid rgba(82, 183, 136, 0.2); padding: 60px 0 30px; margin-top: 80px; }
     </style>
 </head>
 <body>
 
-    <div class="labh-setu-bg">
-        <div class="bridge-element"></div>
-    </div>
+    <div class="labh-setu-bg"></div>
 
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">HOME</a>
+            <a class="navbar-brand fw-bold" href="index.html">LABHSETU</a>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav align-items-center">
-                    <li class="nav-item"><a class="nav-link px-3 active fw-bold" href="about.html">ABOUT</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="growth.html">GROWTH</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="about.html">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active" href="growth.html">GROWTH</a></li>
                     <li class="nav-item ms-lg-3"><a class="btn btn-azure px-4 shadow-sm" href="login.html">LOGIN</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="hero-section text-center" data-aos="fade-up">
+    <header class="py-5 text-center" data-aos="fade-down">
         <div class="container">
-            <span class="badge rounded-pill bg-white text-success border border-success px-3 py-2 mb-3">The LabhSetu Story</span>
-            <h1 class="display-4 fw-bold mb-4" style="font-family: 'Playfair Display', serif;">Bridging the Gap Between <br><span style="color: var(--nature-green);">Waste and Worth</span></h1>
-            <p class="lead text-muted mx-auto" style="max-width: 800px;">
-                "Labh" means benefit, and "Setu" means bridge. We exist to create a circular ecosystem where discarded materials from households and industries find a second life as valuable raw materials for creators and manufacturers.
-            </p>
+            <h1 class="display-4 fw-bold mb-3">Our Growth Journey</h1>
+            <p class="lead text-muted">Scaling the bridge between sustainability and industrial demand.</p>
         </div>
-    </section>
+    </header>
 
     <section class="container mb-5">
         <div class="row g-4">
-            <div class="col-md-6" data-aos="fade-right">
-                <div class="vision-card h-100">
-                    <h3 class="fw-bold" style="color: var(--nature-green);">Our Mission</h3>
-                    <p>To digitize the waste management chain, making it effortless for individuals to "route" their discards and for industries to "source" ethical, sustainable raw materials at a fraction of the cost.</p>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="text-uppercase small fw-bold">Tons Diverted</div>
                 </div>
             </div>
-            <div class="col-md-6" data-aos="fade-left">
-                <div class="vision-card h-100">
-                    <h3 class="fw-bold" style="color: var(--gold-header);">Our Vision</h3>
-                    <p>A world where the word "waste" is obsolete. We envision a future where every piece of discarded material is recognized as a resource, fueling a 100% circular economy.</p>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="stat-card">
+                    <div class="stat-number">1.2k</div>
+                    <div class="text-uppercase small fw-bold">Active Routers</div>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="stat-card">
+                    <div class="stat-number">85</div>
+                    <div class="text-uppercase small fw-bold">Partner Industries</div>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="zoom-in" data-aos-delay="400">
+                <div class="stat-card">
+                    <div class="stat-number">30%</div>
+                    <div class="text-uppercase small fw-bold">Cost Saved</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-5">
-        <div class="container text-center" data-aos="zoom-in">
-            <h2 class="fw-bold mb-5">Environmental Impact (2026 Goal)</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="stat-circle">500+</div>
-                    <h5>Industries Connected</h5>
+    <section class="container py-5">
+        <h2 class="text-center fw-bold mb-5">The Road Ahead</h2>
+        <div class="timeline">
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-content">
+                    <h5 class="fw-bold text-success">Q1 2026: The Spark</h5>
+                    <p class="mb-0">Launch of the LabhSetu Digital Bridge, connecting 50 local households to 5 micro-industries.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="stat-circle">10k</div>
-                    <h5>Tons Diverted</h5>
+            </div>
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-content">
+                    <h5 class="fw-bold text-success">Q3 2026: Expansion</h5>
+                    <p class="mb-0">Integrating AI-driven waste categorization to speed up the "Route to Resource" process.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="stat-circle">100%</div>
-                    <h5>Transparency</h5>
+            </div>
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-content">
+                    <h5 class="fw-bold text-success">2027: National Reach</h5>
+                    <p class="mb-0">Expanding operations to 10 major industrial hubs across India.</p>
                 </div>
+            </div>
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-content">
+                    <h5 class="fw-bold text-success">2028: Zero-Waste Cities</h5>
+                    <p class="mb-0">Partnering with municipal corporations to digitize city-wide discarded material flow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container text-center py-5">
+        <div class="labh-card p-5 shadow-sm" data-aos="flip-up">
+            <h2 class="fw-bold">Want to grow with us?</h2>
+            <p class="text-muted mb-4">Whether you are an individual with discarded items or an industry seeking raw materials, there is space on the bridge for you.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="discard.html" class="btn btn-azure px-5 py-3 fw-bold">Become a Provider</a>
+                <a href="source.html" class="btn btn-outline-success border-2 px-5 py-3 fw-bold">Become a Partner</a>
             </div>
         </div>
     </section>
 
     <footer class="labh-footer">
         <div class="container text-center">
-            <a href="#" class="footer-logo mb-3 d-block" style="text-decoration: none; color: var(--forest); font-family: 'Playfair Display'; font-size: 1.8rem;">LABHSETU</a>
-            <p class="text-muted">Turning Waste into Worth, One Bridge at a Time.</p>
-            <hr class="my-4" style="opacity: 0.1;">
             <p class="mb-0">&copy; 2026 LABHSETU. All rights reserved.</p>
         </div>
     </footer>
